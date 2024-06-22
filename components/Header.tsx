@@ -16,11 +16,11 @@ export default function Header() {
         setShowModal(true)
     }
 
-    return (<div className="w-full bg-white border-b">
+    return (<div className=" w-full bg-white border-b">
             <div className="bg-[#a67c52] text-white text-sm py-2 px-4 flex justify-center">
                 <span>Welcome to our online store!</span>
             </div>
-            <div className="lg:w-[1200px] w-full m-auto bg-white lg:py-10 py-4 lg:px-0 px-2 flex justify-between items-center">
+            <div className="lg:w-[1200px] w-full m-auto bg-white lg:py-8 py-4 lg:px-0 px-2 flex justify-between items-center">
                 <div className="flex items-center space-x-4">
                     <span className="lg:text-2xl text-lg font-bold">Superbfance</span>
                 </div>

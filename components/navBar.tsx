@@ -2,7 +2,7 @@ import {ButtonGroup, Button} from "@nextui-org/react";
 import {GrHome} from "react-icons/gr";
 
 
-export function NavBar(){
+export function NavBar({collections}){
     return(
         <div className="bg-secondary w-full lg:flex hidden">
             <div className="md:w-[1200px] m-auto flex gap-x-4 flex-row text-[10px] uppercase font-bold">
