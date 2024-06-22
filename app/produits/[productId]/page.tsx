@@ -168,7 +168,7 @@ export default function ProductPage({
             <NavBar collections={COLLECTIONS}/>
         </div>
         <div
-            className="relative flex flex-col gap-4 max-w-[1200px] h-full m-auto lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:pt-60 mt-32  max-lg:px-4">
+            className="relative flex flex-col gap-4 max-w-[1200px] h-full m-auto lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:pt-28 mt-32  max-lg:px-4">
             <div className="relative h-full w-full flex-none">
                 {/* Main Image */}
                 <img alt={selectedImage} className="w-full object-contain max-h-[400px] " src={selectedImage}/>

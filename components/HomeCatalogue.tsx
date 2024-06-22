@@ -6,7 +6,7 @@ export  default function HomeCatalogue({collections}){
     return (
         <div className="flex flex-col m-auto p-4">
             <HomeSwiper/>
-            <div className="flex flex-row  sm:items-stretch h-full gap-4">
+            <div className="collections flex flex-row  sm:items-stretch h-full gap-4">
                 {
                     collections.map(collection=> {
                         return <div className="flex h-full flex-1 bg-secondary">
