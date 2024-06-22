@@ -4,9 +4,9 @@ import Header from "@/components/Header";
 
 import {NavBar} from "@/components/navBar";
 import {Button, Accordion, AccordionItem, ScrollShadow} from "@nextui-org/react";
-import Link from "next/link";
 import {useState} from "react";
-import {RiShoppingCart2Line, RiShoppingCartFill} from "react-icons/ri";
+import {RiShoppingCartFill} from "react-icons/ri";
+import Footer from "@/components/footer";
 
 
 export default function ProductPage({
@@ -46,7 +46,7 @@ export default function ProductPage({
             link: "#"
         },
         {
-            id: 1,
+            id: 4,
             title: "A Range of perfume",
             oldPrice: "180",
             price: "100",
@@ -54,7 +54,7 @@ export default function ProductPage({
             link: "#"
         },
         {
-            id: 2,
+            id: 5,
             title: "A Range of perfume",
             oldPrice: "180",
             price: "100",
@@ -62,7 +62,7 @@ export default function ProductPage({
             link: "#"
         },
         {
-            id: 3,
+            id: 6,
             title: "A Range of perfume",
             oldPrice: "180",
             price: "100",
@@ -70,7 +70,7 @@ export default function ProductPage({
             link: "#"
         },
         {
-            id: 3,
+            id: 7,
             title: "A Range of perfume",
             oldPrice: "180",
             price: "100",
@@ -78,7 +78,7 @@ export default function ProductPage({
             link: "#"
         },
         {
-            id: 1,
+            id: 8,
             title: "A Range of perfume",
             oldPrice: "180",
             price: "100",
@@ -86,7 +86,7 @@ export default function ProductPage({
             link: "#"
         },
         {
-            id: 2,
+            id: 9,
             title: "A Range of perfume",
             oldPrice: "180",
             price: "100",
@@ -94,7 +94,7 @@ export default function ProductPage({
             link: "#"
         },
         {
-            id: 3,
+            id: 10,
             title: "A Range of perfume",
             oldPrice: "180",
             price: "100",
@@ -196,8 +196,8 @@ export default function ProductPage({
 
             {/* Product Info */}
             <div className="flex flex-col">
-                <h1 className="text-2xl font-bold tracking-tight text-primary">{product.title}</h1>
-                <p className="text-xl font-medium tracking-tight mt-4">{product.price}Dh</p>
+                <h1 className="text-2xl font-bold tracking-tight text-primary">{product?.title}</h1>
+                <p className="text-xl font-medium tracking-tight mt-4">{product?.price}Dh</p>
                 <div
                     className="flex flex-row border h-10 rounded-full w-fit border-gray-400 relative mt-10"
                 >
@@ -247,7 +247,7 @@ export default function ProductPage({
                 </div>
             </div>
         </div>
-
+    <Footer/>
     </div>
 
 

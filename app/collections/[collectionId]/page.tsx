@@ -1,9 +1,12 @@
 "use client"
-import {GrHome} from "react-icons/gr";
 
+import Header from "@/components/Header";
+
+import {NavBar} from "@/components/navBar";
+import {GoChevronRight} from "react-icons/go";
 import Link from "next/link";
-import {FiChevronDown} from "react-icons/fi";
-import {useState} from "react";
+import Footer from "@/components/footer";
+
 
 const COLLECTIONS = [
     {
@@ -289,44 +292,80 @@ const COLLECTIONS = [
     },
 ];
 
+export default function  Collection({
+                                        params,
+                                        searchParams,
+                                    }: {
+    params: { collectionId: string };
+    searchParams: { [key: string]: string | string[] | undefined };
+}) {
 
-export function NavBar({collections}) {
-    const [isDropdownVisible, setDropdownVisible] = useState(false);
+    let collectionId = params.collectionId;
 
-    const handleMouseEnter = () => {
-        setDropdownVisible(true);
-    };
+    const images = [
+        '/product-item-13.png',
+        '/product-item-20.png',
+        '/product-item-21.png',
+        '/product-item-23.png',
+    ]
+    const details = [
+        {
+            title: 'Garantie 30 jours',
+            description: 'Tous les produits affichés dans notre boutique sont soumis à une politique d\'échange et de remboursement conformément aux termes et conditions indiqués sur cette page.',
+        },
+        {
+            title: 'Livraison',
+            description: 'Livraison a Domicile dans les 48H Partout au Maroc',
+        },
+        {
+            title: 'Politique de Retour\n',
+            description: 'Retour dans les trois jours et échange dans les sept jours à compter de la date d\'achat',
+        },
+    ]
 
-    const handleMouseLeave = () => {
-        setDropdownVisible(false);
-    };
-    return (
-        <div className="bg-secondary w-full lg:flex hidden">
-            <div className="md:w-[1200px] m-auto flex gap-x-4 flex-row text-[10px] uppercase font-bold">
-                <Link href="/"
-                      className="px-4 py-4 cursor-pointer text-white flex bg-primary justify-center items-center gap-x-2">
-                    <GrHome size={15}/>
-                    <div>Accueil</div>
-                </Link>
-                <Link href="/collections"
-                    onMouseEnter={handleMouseEnter}
-                     onMouseLeave={handleMouseLeave}
-                     className="collections-tab px-4 py-4 cursor-pointer flex justify-center items-center gap-x-2 relative">
-                    <div>Collections</div>
-                    <FiChevronDown/>
-                    {isDropdownVisible && (
-                        <div className="collection dropdown absolute top-10 left-2 bg-white flex flex-col gap-y-2  shadow-lg">
-                            {COLLECTIONS.map((collection: any) => {
-                                return <Link href={`/collections/${collection.id}`} className="hover:bg-secondary hover:text-primary p-3 px-4 w-full">
-                                    <div className="whitespace-nowrap overflow-hidden text-ellipsis font-semibold w-full flex-grow">{collection.title}</div>
-                                </Link>
-                            })}
+    const collection = COLLECTIONS.find((c:any) => c.id === parseInt(collectionId, 10));
+
+
+
+    return <div className="bg-white overflow-hidden">
+        <div className="fixed top-0 z-[1000] w-full">
+            <Header/>
+            <NavBar collections={COLLECTIONS}/>
+        </div>
+        <div className="lg:mt-60 mt-40 mx-auto max-w-[1200px] max-lg:p-4">
+            <div className="flex items-center">
+                <span>Collection</span>
+                <GoChevronRight/>
+                <span className="collection-title">{collection?.title}</span>
+            </div>
+            <div className="products grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4 gap-3 pt-10">
+                {collection?.products!.map(product => (
+                    <Link key={product.id} href={`/produits/${product.id}`}>
+                        <div
+                            className="border border-gray-300 rounded-md flex flex-col min-h-[350px] cursor-pointer h-full">
+                            <div className="image pb-3 h-3/4 bg-secondary">
+                                <img
+                                    src={product.imageUrl}
+                                    alt={product.title}
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
+                            <div className="h-1/4 flex items-center flex-col px-3 py-2">
+                                <h2 className="text-primary font-bold text-center">{product.title}</h2>
+                                <div className="flex justify-center">
+                                    <span
+                                        className="old-price text-sm mr-1 text-gray-500 line-through">{product.oldPrice}dh</span>
+                                    <span className="current-price text-sm font-bold">{product.price}dh</span>
+                                </div>
+                            </div>
                         </div>
-                    )}
-                </Link>
-
-                <div className="px-4 py-4 cursor-pointer">Contactez-nous</div>
+                    </Link>
+                ))}
             </div>
         </div>
-    )
+    <Footer/>
+    </div>
+
+
 }
+
