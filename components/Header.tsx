@@ -1,12 +1,10 @@
 "use client"
-
 import {Button} from "@nextui-org/react";
 import {SearchIcon} from "@nextui-org/shared-icons";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import {IoMdMenu} from "react-icons/io";
 import {useState} from "react";
 import MenuModal from "@/components/MenuModal";
-import {HeartIcon, CameraIcon} from "@heroicons/react/16/solid";
 
 
 export default function Header() {
