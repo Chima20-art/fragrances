@@ -154,13 +154,6 @@ export default function ProductPage({
         }
     };
 
-    const handleChange = (event) => {
-        const newQuantity = parseInt(event.target.value, 10);
-        if (!isNaN(newQuantity) && newQuantity >= 1) {
-            setQuantity(newQuantity);
-        }
-    };
-
 
     return <div className="bg-white overflow-hidden">
         <div className="fixed top-0 z-[1000] w-full">
