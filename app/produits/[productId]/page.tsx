@@ -143,7 +143,7 @@ export default function ProductPage({
         },
     ]
 
-    const product = PRODUCTS.find(p => p.id === parseInt(productId, 10));
+    const product = PRODUCTS.find((p:any) => p.id === parseInt(productId, 10));
     const [selectedImage, setSelectedImage] = useState(images[0]);
     const [quantity, setQuantity] = useState(1);
 
