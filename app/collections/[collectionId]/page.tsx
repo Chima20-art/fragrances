@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import {NavBar} from "@/components/navBar";
 import {GoChevronRight} from "react-icons/go";
 import Link from "next/link";
+import Footer from "@/components/footer";
 
 
 const COLLECTIONS = [
@@ -362,7 +363,7 @@ export default function  Collection({
                 ))}
             </div>
         </div>
-
+    <Footer/>
     </div>
 
 

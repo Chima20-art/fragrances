@@ -1,6 +1,6 @@
 "use client";
 
-import React, {ReactNode} from "react";
+import React from "react";
 import {Link, Spacer} from "@nextui-org/react";
 import type {IconProps} from "@iconify/react";
 
@@ -14,7 +14,6 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
 };
 
 
-type SocialIconProps = Omit<IconProps, "icon">;
 
 const navLinks = [  {
     name: "Accueil",
@@ -55,7 +54,7 @@ const socialItems = [  {
 
 export default function Footer() {
     return (
-        <footer className="flex w-full flex-col bg-secondary">
+        <footer className="flex w-full flex-col bg-secondary mt-20  bottom-0 ">
             <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-6 py-12 lg:px-8">
                 <div className="flex items-center justify-center">
                     <AcmeIcon size={44}/>

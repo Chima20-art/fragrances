@@ -4,9 +4,9 @@ import Header from "@/components/Header";
 
 import {NavBar} from "@/components/navBar";
 import {Button, Accordion, AccordionItem, ScrollShadow} from "@nextui-org/react";
-import Link from "next/link";
 import {useState} from "react";
-import {RiShoppingCart2Line, RiShoppingCartFill} from "react-icons/ri";
+import {RiShoppingCartFill} from "react-icons/ri";
+import Footer from "@/components/footer";
 
 
 export default function ProductPage({
@@ -247,7 +247,7 @@ export default function ProductPage({
                 </div>
             </div>
         </div>
-
+    <Footer/>
     </div>
 
 
