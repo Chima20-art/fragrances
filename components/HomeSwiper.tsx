@@ -55,8 +55,8 @@ export default function HomeSwiper () {
                    return <SwiperSlide className="h-full w-full bg-secondary">
                         <div className="flex h-full">
                             <div className="w-2/5 flex flex-col justify-center p-6">
-                                <p className="font-semibold mb-2 uppercase lg:text-sm text-xs text-primary">{slide.subtitle}</p>
-                                <h1 className="text-base capitalize text-3xl mb-3">{slide.title}</h1>
+                                <p className="font-semibold mb-2 uppercase lg:text-xl text-xs text-primary">{slide.subtitle}</p>
+                                <h1 className="text-base capitalize lg:text-4xl text-3xl font-bold mb-3">{slide.title}</h1>
                                 <p className="text-gray-600 text-xs font-semibold capitalize"> prix:<span
                                     className="ml-2 font-bold text-primary lg:text-xl text-sm">{slide.price}Dh</span></p>
                                 <a href="" className="underline font-bold text-sm mt-6">Shop Now</a>
