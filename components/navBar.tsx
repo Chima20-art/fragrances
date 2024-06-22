@@ -9,19 +9,52 @@ const COLLECTIONS = [
     {
         id: 1,
         subtitle: "Superbfance Best collection",
-        title: "Homme",
+        title: "Parfums Homme",
         imageSrc: "product-item-23.png",
-        price: '250',
 
     },
     {
         id: 1,
         subtitle: "Superbfance Best collection",
-        title: "Parfums complets",
-        imageSrc: "product-item-21.png",
-        price: '250',
+        title: "Parfums Femme",
+        imageSrc: "product-item-23.png",
 
-    }
+    },
+    {
+        id: 1,
+        subtitle: "Superbfance Best collection",
+        title: "5ML",
+        imageSrc: "product-item-23.png",
+
+    },
+    {
+        id: 1,
+        subtitle: "Superbfance Best collection",
+        title: "Packs + cadeaux",
+        imageSrc: "product-item-21.png",
+
+    },
+    {
+        id: 1,
+        subtitle: "Superbfance Best collection",
+        title: "Homme",
+        imageSrc: "product-item-23.png",
+
+    },
+    {
+        id: 1,
+        subtitle: "Superbfance Best collection",
+        title: "pack liv grATUITE + 10 ml GRATUITE",
+        imageSrc: "product-item-21.png",
+
+    },
+    {
+        id: 1,
+        subtitle: "Superbfance Best collection",
+        title: "NOS BEST SELLERS",
+        imageSrc: "product-item-21.png",
+
+    },
 ];
 
 export function NavBar({collections}) {
