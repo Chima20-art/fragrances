@@ -3,6 +3,7 @@ import {NextUIProvider} from "@nextui-org/react";
 import {NavBar} from "@/components/navBar";
 import HomeCatalogue from "@/components/HomeCatalogue";
 import BestSellers from "@/components/BestSellers";
+import Footer from "@/components/footer";
 
 
 export default function Home() {
@@ -139,8 +140,6 @@ export default function Home() {
             imageUrl: "/product-item-20.png",
             link: "#"
         },
-
-
     ]
     return (
       <NextUIProvider>
@@ -153,6 +152,7 @@ export default function Home() {
                  <HomeCatalogue collections={COLLECTIONS}/>
                  <BestSellers products={PRODUCTS}/>
              </div>
+            <Footer/>
          </div>
       </NextUIProvider>
   );
