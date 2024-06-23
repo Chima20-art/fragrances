@@ -64,7 +64,7 @@ export default function Collections(){
                 <NavBar collections={COLLECTIONS}/>
             </div>
             <div className="body">
-                <div className="text-gray-700 uppercase font-bold text-xl py-2 mb-8 text-center relative pt-60">
+                <div className="text-gray-700 uppercase font-bold text-xl py-2 mb-8 text-center relative lg:pt-60 pt-40">
                     Nos Collections
                     <span
                         className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-primary h-[3px] w-20"></span>
@@ -86,8 +86,6 @@ export default function Collections(){
                                 </Link>
                             })
                         }
-
-
                     </div>
                 </div>
             </div>

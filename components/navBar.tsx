@@ -325,7 +325,7 @@ export function NavBar({collections}) {
                     )}
                 </Link>
 
-                <div className="px-4 py-4 cursor-pointer">Contactez-nous</div>
+                <Link href={"/contact"} className="px-4 py-4 cursor-pointer">Contactez-nous</Link>
             </div>
         </div>
     )

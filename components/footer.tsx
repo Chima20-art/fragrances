@@ -2,34 +2,29 @@
 
 import React from "react";
 import {Link, Spacer} from "@nextui-org/react";
-import type {IconProps} from "@iconify/react";
 
 
-import type {SVGProps} from "react";
 import {Icon} from "@iconify/react";
 import {AcmeIcon} from "@/components/social";
 
-export type IconSvgProps = SVGProps<SVGSVGElement> & {
-    size?: number;
-};
 
 
 
 const navLinks = [  {
     name: "Accueil",
-    href: "#",
+    href: "/",
 },
     {
         name: "Collections",
-        href: "#",
+        href: "/collections",
     },
     {
         name: "Contact",
-        href: "#",
+        href: "/contact",
     },
     {
         name: "blog",
-        href: "#",
+        href: "",
     },
 
 ];
@@ -54,7 +49,7 @@ const socialItems = [  {
 
 export default function Footer() {
     return (
-        <footer className="flex w-full flex-col bg-secondary mt-20  bottom-0 ">
+        <div className="flex w-full flex-col bg-secondary mt-20  bottom-0 ">
             <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-6 py-12 lg:px-8">
                 <div className="flex items-center justify-center">
                     <AcmeIcon size={44}/>
@@ -88,6 +83,6 @@ export default function Footer() {
                     &copy; 2024 Superbfragrance Inc. All rights reserved.
                 </p>
             </div>
-        </footer>
+        </div>
     );
 }
