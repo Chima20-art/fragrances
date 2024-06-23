@@ -1,7 +1,9 @@
 import { sanityClient, urlForImage } from "@/app/sanity/client";
 import Header from "@/components/Header";
+import Footer from "@/components/footer";
 import { NavBar } from "@/components/navBar";
 import Link from "next/link";
+import { GoChevronRight } from "react-icons/go";
 
 export default async function Collection({
   params,
@@ -106,13 +108,20 @@ export default async function Collection({
   ]);
 
   return (
-    <div className="bg-white overflow-hidden">
-      <div className="fixed top-0 z-40  w-full">
+    <div className="bg-white overflow-hidden flex flex-col min-h-screen">
+      <div className="fixed top-0 z-[1000] w-full">
         <Header websiteSettings={websiteSettings} />
         <NavBar collections={collections} />
       </div>
-      <div className="flex  max-w-[1200px] m-auto pt-60">
-        <div className="collections grid grid-cols-2 lg:grid-cols-3  lg:gap-4 gap-3">
+      <div className="flex-1 lg:mt-60 mt-40 mx-auto max-w-[1200px] max-lg:p-4">
+        <div className="flex items-center">
+          <Link href={"/"}>Accueil</Link>
+          <GoChevronRight />
+          <Link href={"/collections"}>Collections</Link>
+          <GoChevronRight />
+          <span className="collection-title">{selectedCollection?.title}</span>
+        </div>
+        <div className="products grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4 gap-3 pt-10">
           {products.map((product: any) => (
             <Link key={product._id} href={`/produits/${product._id}`}>
               <div className="border border-gray-300 rounded-md flex flex-col min-h-[350px] cursor-pointer h-full">
@@ -143,6 +152,7 @@ export default async function Collection({
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

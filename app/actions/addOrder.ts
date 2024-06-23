@@ -38,7 +38,7 @@ export async function addOrder({
 
     let confirmedCartItems = cartItems.map((item: any) => {
       let product = products.find(
-        (product: any) => product.id === item.product.productId
+        (product: any) => product._id === item.product._id
       );
 
       if (!product) return null;

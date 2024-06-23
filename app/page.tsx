@@ -91,6 +91,7 @@ export default async function Home() {
           <HomeCatalogue websiteSettings={websiteSettings} />
           <BestSellers products={products} />
         </div>
+        <Footer />
       </div>
     </NextUIProvider>
   );

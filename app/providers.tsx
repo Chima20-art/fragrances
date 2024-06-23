@@ -29,9 +29,11 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           },
         });
 
+        console.log("found products", products);
+
         let newCartItems = cartItems.map((item: any) => {
           let product = products.find(
-            (product: any) => product.id === item.product.productId
+            (product: any) => product._id === item.product._id
           );
 
           if (!product) return null;

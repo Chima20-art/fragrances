@@ -30,6 +30,7 @@ export default function Product({ product }: { product: any }) {
         "Retour dans les trois jours et échange dans les sept jours à compter de la date d'achat",
     },
   ];
+
   const [selectedImage, setSelectedImage] = useState(product.image);
   const { cartItems, handleAddToCart } = useContext<any>(CardItemsContext);
   let isItemInCart = cartItems.some(
@@ -65,7 +66,7 @@ export default function Product({ product }: { product: any }) {
       <div className="relative h-full w-full flex-none">
         {/* Main Image */}
         <img
-          alt={selectedImage}
+          alt={product.title}
           className="w-full object-contain max-h-[400px] "
           src={urlForImage(selectedImage)}
         />
@@ -95,7 +96,7 @@ export default function Product({ product }: { product: any }) {
               onClick={() => setSelectedImage(image)}
             >
               <img
-                alt={image}
+                alt={product.title}
                 className="w-full h-full object-contain"
                 src={urlForImage(image)}
               />
@@ -107,10 +108,10 @@ export default function Product({ product }: { product: any }) {
       {/* Product Info */}
       <div className="flex flex-col">
         <h1 className="text-2xl font-bold tracking-tight text-primary">
-          {product.title}
+          {product?.title}
         </h1>
         <p className="text-xl font-medium tracking-tight mt-4">
-          {product.price}Dh
+          {product?.price}Dh
         </p>
         <div className="flex flex-row border h-10 rounded-full w-fit border-gray-400 relative mt-10">
           <button

@@ -29,12 +29,12 @@ export function NavBar({ collections }: { collections: any[] }) {
           href="/collections"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="px-4 py-4 cursor-pointer flex justify-center items-center gap-x-2 relative"
+          className="collections-tab px-4 py-4 cursor-pointer flex justify-center items-center gap-x-2 relative"
         >
           <div>Collections</div>
           <FiChevronDown />
           {isDropdownVisible && (
-            <div className="dropdown absolute top-10 left-2 bg-white flex flex-col gap-y-2  shadow-lg">
+            <div className="collection dropdown absolute top-10 left-2 bg-white flex flex-col gap-y-2  shadow-lg">
               {collections.map((collection: any) => {
                 return (
                   <Link
@@ -52,7 +52,9 @@ export function NavBar({ collections }: { collections: any[] }) {
           )}
         </Link>
 
-        <div className="px-4 py-4 cursor-pointer">Contactez-nous</div>
+        <Link href={"/contact"} className="px-4 py-4 cursor-pointer">
+          Contactez-nous
+        </Link>
       </div>
     </div>
   );
