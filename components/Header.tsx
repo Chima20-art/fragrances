@@ -27,7 +27,7 @@ export default function Header({ websiteSettings }: { websiteSettings: any }) {
   const [showModal, setShowModal] = useState(false);
   const [search, setSearch] = useState("");
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-  const { cartItems, setCartItems } = useContext<any>(CardItemsContext);
+  const { cartItems, handleRemoveFromCart } = useContext<any>(CardItemsContext);
 
   const router = useRouter();
 
@@ -74,10 +74,7 @@ export default function Header({ websiteSettings }: { websiteSettings: any }) {
                         <div>
                           <Button
                             onClick={() => {
-                              let newCartItems = cartItems.filter(
-                                (cartItem: any) => cartItem.id !== item.id
-                              );
-                              setCartItems(newCartItems);
+                              handleRemoveFromCart(item._id);
                             }}
                             className="text-red-500"
                           >

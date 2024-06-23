@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import { NavBar } from "@/components/navBar";
-import { sanityClient } from "../sanity/client";
+import { sanityClient, urlForImage } from "../sanity/client";
+import Link from "next/link";
 
 export default async function Collections() {
   let websiteSettingsPromise = sanityClient.fetch({
@@ -48,6 +49,8 @@ export default async function Collections() {
     collectionsPromise,
   ]);
 
+  console.log("collections ", collections);
+
   return (
     <div className="bg-white overflow-hidden">
       <div className="fixed top-0 z-40  w-full">
@@ -56,28 +59,31 @@ export default async function Collections() {
       </div>
       <div className="flex  max-w-[1200px] m-auto pt-60">
         <div className="collections grid grid-cols-2 lg:grid-cols-3  lg:gap-4 gap-3">
-          {/* {COLLECTIONS.map((collection) => {
+          {collections.map((collection: any) => {
             return (
-              <div className="flex h-full flex-1 bg-secondary cursor-pointer">
+              <Link
+                href={`/collections/${collection._id}`}
+                className="flex h-full flex-1 bg-secondary cursor-pointer"
+              >
                 <div className="w-1/2 flex flex-col justify-center p-6">
                   <p className="font-semibold mb-2 uppercase text-[8px] lg:text-xs text-primary">
                     {collection.subtitle}
                   </p>
-                  <h1 className="text-base font-semibold capitalize lg:text-xl text-sm mb-3">
+                  <h1 className=" font-semibold capitalize lg:text-xl text-sm mb-3">
                     {" "}
                     {collection.title}
                   </h1>
                 </div>
                 <div className="w-1/2 flex justify-center items-center p-4">
                   <img
-                    src={collection.imageSrc}
+                    src={urlForImage(collection.image)}
                     alt="Descriptive Alt Text"
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </div>
+              </Link>
             );
-          })} */}
+          })}
         </div>
       </div>
     </div>

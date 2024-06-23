@@ -33,12 +33,14 @@ export default async function Home() {
     {
     _createdAt,
     image,
+    extraImages,
     collections[]->,
     _updatedAt,
     _id,
     _type,
     title,
     price,
+    oldprice,
     description,
     }
     `,
@@ -71,6 +73,8 @@ export default async function Home() {
       collectionsPromise,
     ]);
 
+  console.log("products", products);
+
   return (
     <NextUIProvider>
       <div className="bg-white overflow-hidden">
@@ -79,8 +83,8 @@ export default async function Home() {
           <NavBar collections={collections} />
         </div>
         <div className="lg:w-[54vw] mx-auto lg:pt-48 pt-24">
-          {/* <HomeCatalogue collections={COLLECTIONS} />
-          <BestSellers products={PRODUCTS} /> */}
+          <HomeCatalogue websiteSettings={websiteSettings} />
+          <BestSellers products={products} />
         </div>
       </div>
     </NextUIProvider>
