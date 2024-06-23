@@ -10,7 +10,20 @@ export default async function Collection({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   let websiteSettingsPromise = sanityClient.fetch({
-    query: `*[_type == 'siteSettings'][0]`,
+    query: `*[_type == 'siteSettings'][0]
+    {
+    websiteHeaderBanner,
+    featuredCollection[]->,
+    _updatedAt,
+    description,
+    _id,
+    _type,
+    slider,
+    title,
+    image,
+    _createdAt
+    }
+    `,
     config: {
       next: {
         revalidate: process.env.NODE_ENV === "development" ? 1 : 60,
@@ -28,7 +41,17 @@ export default async function Collection({
   });
 
   let collectionsPromise = sanityClient.fetch({
-    query: `*[_type == 'collections']`,
+    query: `*[_type == 'collections']
+    {
+    image,
+    title,
+    _updatedAt,
+    price,
+    subtitle,
+    _id,
+    _type,
+    _createdAt
+    }`,
     config: {
       cache: "no-cache",
     },
