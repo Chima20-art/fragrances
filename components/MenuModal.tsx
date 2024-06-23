@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from "next/link";
-import React, {useState} from "react";
+import React from "react";
 
 export default  function MenuModal ({showModal,setShowModal}){
     const modalVariants = {
@@ -13,9 +13,9 @@ export default  function MenuModal ({showModal,setShowModal}){
             initial="closed"
             animate={showModal ? "open" : "closed"}
             variants={modalVariants}
-            className="fixed top-0 left-0 w-screen h-screen z-50 flex justify-start items-center"
+            className="fixed top-0 right-0 lg:w-[30vw] w-[70vw]  h-screen z-50 flex justify-start items-center"
         >
-            <motion.div className="absolute p-4 rounded-lg shadow-md overflow-y-auto bg-white w-[60vw] h-full flex flex-col">
+            <motion.div className="absolute p-4 rounded-lg shadow-md overflow-y-auto bg-white w-full h-full flex flex-col">
                 <div className="border-b border-gray-400 py-4 text-center">MENU</div>
                 <div className="flex-1 py-8 flex flex-col  items-center gap-y-8">
                     <Link href="/" className="bg-transparent">Accueil</Link>
