@@ -5,6 +5,7 @@ import { RiShoppingCart2Line } from "react-icons/ri";
 import {IoMdMenu} from "react-icons/io";
 import {useState} from "react";
 import MenuModal from "@/components/MenuModal";
+import Link from "next/link";
 
 
 export default function Header() {
@@ -19,9 +20,9 @@ export default function Header() {
                 <span>Welcome to our online store!</span>
             </div>
             <div className="lg:w-[1200px] w-full m-auto bg-white lg:py-8 py-4 lg:px-0 px-2 flex justify-between items-center">
-                <div className="flex items-center space-x-4">
-                    <span className="lg:text-2xl text-lg font-bold">Superbfance</span>
-                </div>
+                <Link href="/" className="flex items-center space-x-4 cursor:pointer">
+                    <span className="lg:text-2xl text-lg font-bold">Superbfragrance</span>
+                </Link>
                 <div className="hidden lg:flex items-center">
                     <input type="text" placeholder="Search here"
                            className="border rounded-l-full px-4 py-2 w-72 outline-none"/>
