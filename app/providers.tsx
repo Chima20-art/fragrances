@@ -33,8 +33,13 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           let product = products.find(
             (product: any) => product.id === item.product.productId
           );
+
+          if (!product) return null;
+
           return { product, quantity: item.quantity };
         });
+
+        newCartItems = newCartItems.filter((item: any) => item !== null);
 
         console.log("newCartItems", newCartItems);
         if (newCartItems.length > 0) setCartItems(newCartItems);
