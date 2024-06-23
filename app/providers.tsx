@@ -67,7 +67,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   };
 
   const handleRemoveFromCart = (productId: string) => {
-    let newCartItems = cartItems.filter((item: any) => item._id !== productId);
+    let newCartItems = cartItems.filter(
+      (item: any) => item.product._id !== productId
+    );
     setCartItems(newCartItems);
     localStorage.setItem("cartItems", JSON.stringify(newCartItems));
   };
