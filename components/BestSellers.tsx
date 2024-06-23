@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import ProductDetail from "@/components/[id]";
 import { urlForImage } from "@/app/sanity/client";
 
 export default function BestSellers({ products }: { products: any }) {
@@ -15,15 +14,15 @@ export default function BestSellers({ products }: { products: any }) {
       <div className="products grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4 gap-3">
         {products.map((product: any) => (
           <Link key={product._id} href={`/produits/${product._id}`}>
-            <div className="border border-gray-300 rounded-md flex flex-col min-h-[350px] cursor-pointer h-full">
-              <div className="image pb-3 h-3/4 bg-secondary">
+            <div className="border border-gray-300 rounded-md flex flex-col cursor-pointer min-h-[600px] h-full">
+              <div className="image h-3/4 p-3 bg-secondary flex items-center justify-center">
                 <img
                   src={urlForImage(product.image)}
                   alt={product.title}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain "
                 />
               </div>
-              <div className="h-1/4 flex items-center flex-col px-3 py-2">
+              <div className="h-1/4 flex items-center flex-col px-3 py-6">
                 <h2 className="text-primary font-bold text-center">
                   {product.title}
                 </h2>

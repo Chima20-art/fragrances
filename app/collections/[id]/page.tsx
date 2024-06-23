@@ -7,7 +7,6 @@ import { GoChevronRight } from "react-icons/go";
 
 export default async function Collection({
   params,
-  searchParams,
 }: {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -124,10 +123,10 @@ export default async function Collection({
         <div className="products grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4 gap-3 pt-10">
           {products.map((product: any) => (
             <Link key={product._id} href={`/produits/${product._id}`}>
-              <div className="border border-gray-300 rounded-md flex flex-col min-h-[350px] cursor-pointer h-full">
+              <div className="border border-gray-300 rounded-md flex flex-col cursor-pointer min-h-[600px] h-full">
                 <div className="image pb-3 h-3/4 bg-secondary">
                   <img
-                    src={urlForImage(product.image)}
+                      src={urlForImage(product.image)}
                     alt={product.title}
                     className="w-full h-full object-contain"
                   />

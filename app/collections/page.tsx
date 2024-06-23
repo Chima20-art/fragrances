@@ -73,7 +73,7 @@ export default async function Collections() {
               return (
                 <Link
                   href={`/collections/${collection._id}`}
-                  className="flex h-full flex-1 bg-secondary cursor-pointer"
+                  className="flex lg:min-h-[280px] min-h-[220px]  h-full flex-1 bg-secondary cursor-pointer"
                 >
                   <div className="w-1/2 flex flex-col justify-center p-6">
                     <p className="font-semibold mb-2 uppercase text-[8px] lg:text-xs text-primary">

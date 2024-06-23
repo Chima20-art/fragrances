@@ -26,7 +26,7 @@ export function NavBar({ collections }: { collections: any[] }) {
           <div>Accueil</div>
         </Link>
         <Link
-          href="/collections"
+          href={"/collections"}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           className="collections-tab px-4 py-4 cursor-pointer flex justify-center items-center gap-x-2 relative"
