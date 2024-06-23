@@ -1,8 +1,17 @@
 import { sanityClient } from "@/app/sanity/client";
 import Header from "@/components/Header";
 
-import { NavBar } from "@/components/navBar";
 import Product from "@/components/productPage";
+import { NavBar } from "@/components/navBar";
+import {
+  Button,
+  Accordion,
+  AccordionItem,
+  ScrollShadow,
+} from "@nextui-org/react";
+import { useState } from "react";
+import { RiShoppingCartFill } from "react-icons/ri";
+import Footer from "@/components/footer";
 
 export default async function ProductPage({
   params,
@@ -94,6 +103,7 @@ export default async function ProductPage({
         <NavBar collections={collections} />
       </div>
       <Product product={product} />
+      <Footer />
     </div>
   );
 }

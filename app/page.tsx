@@ -4,6 +4,7 @@ import { NavBar } from "@/components/navBar";
 import HomeCatalogue from "@/components/HomeCatalogue";
 import BestSellers from "@/components/BestSellers";
 import { sanityClient } from "./sanity/client";
+import Footer from "@/components/footer";
 
 export default async function Home() {
   let websiteSettingsPromise = sanityClient.fetch({
