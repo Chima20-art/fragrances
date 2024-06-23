@@ -30,12 +30,12 @@ export default function CartModal({ showCartModal, setShowCartModal }: any) {
               return (
                 <div
                   key={selectedProduct.product._id}
-                  className="flex flex-row w-full mx-4 border-b border-gray-300 h-32"
+                  className="group flex flex-row w-full mx-4 border-b border-gray-300 h-32"
                 >
                   <img
                     src={urlForImage(selectedProduct.product.image)}
                     alt={selectedProduct.product.title}
-                    className="w-1/5 bg-secondary object-contain m-4"
+                    className="w-1/5 bg-secondary object-contain m-4 transform transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className={"flex-1 flex flex-col p-2"}>
                     <div className="flex flex-row flex-1 items-center">

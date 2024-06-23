@@ -15,11 +15,11 @@ export default function BestSellers({ products }: { products: any }) {
         {products.map((product: any) => (
           <Link key={product._id} href={`/produits/${product._id}`}>
             <div className="border border-gray-300 rounded-md flex flex-col cursor-pointer min-h-[600px] h-full">
-              <div className="image h-3/4 p-3 bg-secondary flex items-center justify-center">
+              <div className="image h-3/4 p-3 bg-secondary flex items-center justify-center group">
                 <img
                   src={urlForImage(product.image)}
                   alt={product.title}
-                  className="w-full h-full object-contain "
+                  className="w-full h-full object-contain transform transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
               <div className="h-1/4 flex items-center flex-col px-3 py-6">

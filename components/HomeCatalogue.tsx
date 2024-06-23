@@ -35,7 +35,7 @@ export default function HomeCatalogue({
                   <img
                     src={urlForImage(collection.image)}
                     alt="Descriptive Alt Text"
-                    className="w-full h-full object-cover"
+                    className="w-full max-h-[250px] object-contain"
                   />
                 </div>
               </div>

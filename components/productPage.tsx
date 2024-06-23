@@ -62,12 +62,12 @@ export default function Product({ product }: { product: any }) {
   };
 
   return (
-    <div className="relative flex flex-col gap-4 max-w-[1200px] h-full m-auto lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:pt-28 mt-32  max-lg:px-4">
-      <div className="relative h-full w-full flex-none">
+    <div className="relative flex flex-col gap-4 max-w-[1200px] h-full m-auto lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:pt-28 mt-40  max-lg:px-4">
+      <div className="group relative h-full w-full flex-none">
         {/* Main Image */}
         <img
           alt={product.title}
-          className="w-full object-contain max-h-[400px] "
+          className="w-full object-contain max-h-[400px] transform transition-transform duration-300 group-hover:scale-110 "
           src={urlForImage(selectedImage)}
         />
         {/* Image Gallery */}
@@ -76,7 +76,7 @@ export default function Product({ product }: { product: any }) {
           orientation="horizontal"
         >
           <button
-            className="relative h-24 w-24 flex-none cursor-pointer items-center justify-center rounded-medium ring-offset-background transition-shadow data-[selected=true]:outline-none data-[selected=true]:ring-2 data-[selected=true]:ring-focus data-[selected=true]:ring-offset-2"
+            className="group relative h-24 w-24 flex-none cursor-pointer items-center justify-center rounded-medium ring-offset-background transition-shadow data-[selected=true]:outline-none data-[selected=true]:ring-2 data-[selected=true]:ring-focus data-[selected=true]:ring-offset-2"
             data-selected={
               product.image.asset._ref === selectedImage.asset._ref
             }
@@ -84,7 +84,7 @@ export default function Product({ product }: { product: any }) {
           >
             <img
               alt={product.title}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain transform transition-transform duration-300 group-hover:scale-110"
               src={urlForImage(product.image)}
             />
           </button>

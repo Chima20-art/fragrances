@@ -58,7 +58,7 @@ export default function HomeSwiper({ slider }: { slider: any[] }) {
                   <img
                     src={urlForImage(slide.image)}
                     alt="Descriptive Alt Text"
-                    className="w-full h-full object-contain"
+                    className="w-full max-h-[600px] object-contain"
                   />
                 </div>
               </div>
