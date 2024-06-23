@@ -6,22 +6,28 @@ import {IoMdMenu} from "react-icons/io";
 import {useState} from "react";
 import MenuModal from "@/components/MenuModal";
 import Link from "next/link";
+import CartModal from "@/components/CartModal";
 
 
 export default function Header() {
     const [showModal, setShowModal] = useState(false);
+    const [showCartModal, setShowCartModal] = useState(false);
 
-   const handlesetShowModal = ()=>{
+
+    const handlesetShowModal = ()=>{
         setShowModal(true)
+    }
+    const handlesetShowCartModal = ()=>{
+        setShowCartModal(true)
     }
 
     return (<div className=" w-full bg-white border-b">
             <div className="bg-[#a67c52] text-white text-sm py-2 px-4 flex justify-center">
                 <span>Welcome to our online store!</span>
             </div>
-            <div className="lg:w-[1200px] w-full m-auto bg-white lg:py-8 py-4 lg:px-0 px-2 flex justify-between items-center">
+            <div className="lg:w-[1200px] w-full m-auto bg-white lg:py-8 py-4 lg:px-0 px-2 flex justify-between items-end">
                 <Link href="/" className="flex items-center space-x-4 cursor:pointer">
-                    <span className="lg:text-2xl text-lg font-bold">Superbfragrance</span>
+                    <img src={"/logo.svg"} alt="lofo" className={" min-h-16"}></img>
                 </Link>
                 <div className="hidden lg:flex items-center">
                     <input type="text" placeholder="Search here"
@@ -31,7 +37,7 @@ export default function Header() {
                     </Button>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <Button isIconOnly className="text-gray-600 rounded-full bg-gray-200">
+                    <Button isIconOnly  onClick={handlesetShowCartModal} className="text-gray-600 rounded-full bg-gray-200">
                         <RiShoppingCart2Line className="lg:h-5 lg:w-5"/>
                     </Button>
                     <Button isIconOnly onClick={handlesetShowModal} className="lg:hidden flex text-gray-600 px-0  bg-gray-200">
@@ -40,6 +46,8 @@ export default function Header() {
                 </div>
             </div>
             <MenuModal showModal={showModal} setShowModal={setShowModal}/>
+            <CartModal showCartModal={showCartModal} setShowCartModal={setShowCartModal}/>
+
         </div>
     )
 }
