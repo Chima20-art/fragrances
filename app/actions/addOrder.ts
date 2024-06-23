@@ -2,6 +2,7 @@
 
 import { sanityAdminClient } from "../sanity/adminClient";
 import { sanityClient } from "../sanity/client";
+import { uid } from "uid";
 
 export async function addOrder({
   cartItems,
@@ -58,6 +59,7 @@ export async function addOrder({
     let order = await sanityAdminClient.create({
       _type: "orders",
       products: confirmedCartItems.map((item: any) => ({
+        _key: uid(32),
         product: {
           _type: "reference",
           _ref: item.product._id,
@@ -70,6 +72,10 @@ export async function addOrder({
       city,
       address,
       status: "pending",
+      total: confirmedCartItems.reduce(
+        (acc: number, item: any) => acc + item.product.price * item.quantity,
+        0
+      ),
     });
 
     return {

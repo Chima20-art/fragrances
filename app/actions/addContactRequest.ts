@@ -23,12 +23,14 @@ export async function createContactRequest({
       message,
     });
 
+    console.log("contactRequest", contactRequest);
+
     return {
       status: true,
       message: "Contact request created successfully",
     };
   } catch (error: any) {
-    console.error("addOrder ", error.message);
+    console.error("createContactRequest ", error.message);
     return {
       status: false,
       message: error.message,
