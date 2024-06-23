@@ -18,7 +18,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         let productsIds = cartItems.map((item: any) => item.product._id);
         console.log("productsIds ", productsIds);
         let products: any[] = await sanityClient.fetch({
-          query: `*[_type == 'products' && _id in productsIds]`,
+          query: `*[_type == 'products' && _id in $productsIds]`,
           params: {
             productsIds: productsIds,
           },
@@ -37,6 +37,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         });
 
         console.log("newCartItems", newCartItems);
+        if (newCartItems.length > 0) setCartItems(newCartItems);
       }
     }
 
