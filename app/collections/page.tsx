@@ -16,7 +16,11 @@ export default async function Collections() {
     slider,
     title,
     image,
-    _createdAt
+    _createdAt,
+    instagram,
+    facebook,
+    contactEmail,
+    contactPhone
     }
     `,
     config: {

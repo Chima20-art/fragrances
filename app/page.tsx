@@ -18,7 +18,11 @@ export default async function Home() {
     slider,
     title,
     image,
-    _createdAt
+    _createdAt,
+    instagram,
+    facebook,
+    contactEmail,
+    contactPhone
     }
     `,
     config: {

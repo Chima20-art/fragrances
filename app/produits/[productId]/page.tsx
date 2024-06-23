@@ -26,7 +26,11 @@ export default async function ProductPage({
     slider,
     title,
     image,
-    _createdAt
+    _createdAt,
+    instagram,
+    facebook,
+    contactEmail,
+    contactPhone
     }
     `,
     config: {

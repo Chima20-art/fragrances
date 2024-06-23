@@ -22,7 +22,11 @@ export default async function Collection({
     slider,
     title,
     image,
-    _createdAt
+    _createdAt,
+    instagram,
+    facebook,
+    contactEmail,
+    contactPhone
     }
     `,
     config: {

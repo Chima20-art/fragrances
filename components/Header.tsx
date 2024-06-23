@@ -13,7 +13,7 @@ import { IoMdMenu } from "react-icons/io";
 import { useContext, useState } from "react";
 import MenuModal from "@/components/MenuModal";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   Modal,
   ModalContent,
@@ -24,8 +24,10 @@ import {
 import { CardItemsContext } from "./CardItemsContext";
 
 export default function Header({ websiteSettings }: { websiteSettings: any }) {
+  const searchParams = useSearchParams();
+
   const [showModal, setShowModal] = useState(false);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(searchParams.get("search") ?? "");
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const { cartItems, handleRemoveFromCart } = useContext<any>(CardItemsContext);
 
