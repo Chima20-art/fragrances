@@ -1,14 +1,29 @@
+import { sanityClient } from "@/app/sanity/client";
 import Header from "@/components/Header";
 import { NavBar } from "@/components/navBar";
-import { sanityClient } from "../sanity/client";
 
-export default async function Collections() {
+export default async function Collection({
+  params,
+  searchParams,
+}: {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   let websiteSettingsPromise = sanityClient.fetch({
     query: `*[_type == 'siteSettings'][0]`,
     config: {
       next: {
         revalidate: process.env.NODE_ENV === "development" ? 1 : 60,
       },
+    },
+  });
+
+  let collectionId = decodeURIComponent(params.id ?? ""); // This is the collection title but it has %20 instead of spaces can you parse it
+
+  let collectionPromise = sanityClient.fetch({
+    query: `*[_type == 'collections' && id == "${collectionId}"][0]`,
+    config: {
+      cache: "no-cache",
     },
   });
 
@@ -19,10 +34,14 @@ export default async function Collections() {
     },
   });
 
-  let [websiteSettings, collections]: [any, any] = await Promise.all([
-    websiteSettingsPromise,
-    collectionsPromise,
-  ]);
+  let [websiteSettings, collection, collections]: [any, any, any] =
+    await Promise.all([
+      websiteSettingsPromise,
+      collectionPromise,
+      collectionsPromise,
+    ]);
+
+  console.log("collection ", collection);
 
   return (
     <div className="bg-white overflow-hidden">
