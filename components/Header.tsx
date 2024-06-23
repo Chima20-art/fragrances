@@ -1,53 +1,117 @@
-"use client"
-import {Button} from "@nextui-org/react";
-import {SearchIcon} from "@nextui-org/shared-icons";
+"use client";
+import {
+  Badge,
+  Button,
+  Divider,
+  Input,
+  ScrollShadow,
+  useDisclosure,
+} from "@nextui-org/react";
+import { SearchIcon } from "@nextui-org/shared-icons";
 import { RiShoppingCart2Line } from "react-icons/ri";
-import {IoMdMenu} from "react-icons/io";
-import {useState} from "react";
+import { IoMdMenu } from "react-icons/io";
+import { useContext, useState } from "react";
 import MenuModal from "@/components/MenuModal";
 import Link from "next/link";
-import CartModal from "@/components/CartModal";
+import { useRouter, useSearchParams } from "next/navigation";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@nextui-org/react";
+import { CardItemsContext } from "./CardItemsContext";
+import CartModal from "./CartModal";
 
+export default function Header({ websiteSettings }: { websiteSettings: any }) {
+  const searchParams = useSearchParams();
 
-export default function Header() {
-    const [showModal, setShowModal] = useState(false);
-    const [showCartModal, setShowCartModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [search, setSearch] = useState(searchParams.get("search") ?? "");
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+  const { cartItems, handleRemoveFromCart } = useContext<any>(CardItemsContext);
+  const [showCartModal, setShowCartModal] = useState(false);
 
+  const handlesetShowModal = () => {
+    setShowModal(true);
+  };
+  const handlesetShowCartModal = () => {
+    setShowCartModal(true);
+  };
+  const router = useRouter();
 
-    const handlesetShowModal = ()=>{
-        setShowModal(true)
-    }
-    const handlesetShowCartModal = ()=>{
-        setShowCartModal(true)
-    }
+  console.log("websiteSettings ", websiteSettings);
 
-    return (<div className=" w-full bg-white border-b">
-            <div className="bg-[#a67c52] text-white text-sm py-2 px-4 flex justify-center">
-                <span>Welcome to our online store!</span>
-            </div>
-            <div className="lg:w-[1200px] w-full m-auto bg-white lg:py-8 py-4 lg:px-0 px-2 flex justify-between items-end">
-                <Link href="/" className="flex items-center space-x-4 cursor:pointer">
-                    <img src={"/logo.svg"} alt="lofo" className={" min-h-16"}></img>
-                </Link>
-                <div className="hidden lg:flex items-center">
-                    <input type="text" placeholder="Search here"
-                           className="border rounded-l-full px-4 py-2 w-72 outline-none"/>
-                    <Button className="bg-[#a67c52] text-white  rounded-r-full">
-                        <SearchIcon className="h-5 w-5"/>
-                    </Button>
-                </div>
-                <div className="flex items-center space-x-2">
-                    <Button isIconOnly  onClick={handlesetShowCartModal} className="text-gray-600 rounded-full bg-gray-200">
-                        <RiShoppingCart2Line className="lg:h-5 lg:w-5"/>
-                    </Button>
-                    <Button isIconOnly onClick={handlesetShowModal} className="lg:hidden flex text-gray-600 px-0  bg-gray-200">
-                        <IoMdMenu className="w-6 h-8" />
-                    </Button>
-                </div>
-            </div>
-            <MenuModal showModal={showModal} setShowModal={setShowModal}/>
-            <CartModal showCartModal={showCartModal} setShowCartModal={setShowCartModal}/>
+  const onSearch = () => {
+    if (search.trim() === "") return;
+    router.push(`/search?search=${search.trim()}`);
+  };
 
+  return (
+    <div className=" w-full bg-white border-b">
+      {websiteSettings && websiteSettings.websiteHeaderBanner && (
+        <div className="bg-[#a67c52] text-white text-sm py-2 px-4 flex justify-center">
+          <span>{websiteSettings.websiteHeaderBanner}</span>
         </div>
-    )
+      )}
+
+      <div className="lg:w-[1200px] w-full m-auto bg-white lg:py-8 py-4 lg:px-0 px-2 flex justify-between items-end">
+        <Link href="/" className="flex items-center space-x-4 cursor:pointer">
+          <img src={"/logo.svg"} alt="lofo" className={" min-h-16"}></img>
+        </Link>
+        <div className="hidden lg:flex items-center rounded-xl overflow-hidden">
+          <Input
+            type="text"
+            placeholder="Search here"
+            radius="none"
+            className="w-[250px] rounded-l-xl bg-red-300"
+            isClearable
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onClear={() => setSearch("")}
+            onKeyDown={(e: any) => {
+              if (e.key == "Enter") {
+                onSearch();
+              }
+            }}
+          />
+          <Button
+            onClick={() => onSearch()}
+            className="bg-[#a67c52] text-white  rounded-none"
+          >
+            <SearchIcon className="h-5 w-5" />
+          </Button>
+        </div>
+        <div className="flex items-center space-x-2">
+          <Badge
+            color="danger"
+            content={cartItems.length}
+            isInvisible={cartItems.length == 0}
+            shape="circle"
+          >
+            <Button
+              isIconOnly
+              onClick={handlesetShowCartModal}
+              className="text-gray-600 rounded-full bg-gray-200"
+            >
+              <RiShoppingCart2Line className="w-6 h-6" />
+            </Button>
+          </Badge>
+          <Button
+            isIconOnly
+            onClick={handlesetShowModal}
+            className="lg:hidden flex text-gray-600 px-0  bg-gray-200"
+          >
+            <IoMdMenu className="w-6 h-8" />
+          </Button>
+        </div>
+      </div>
+      <MenuModal showModal={showModal} setShowModal={setShowModal} />
+      <CartModal
+        showCartModal={showCartModal}
+        setShowCartModal={setShowCartModal}
+      />
+    </div>
+  );
 }
