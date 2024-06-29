@@ -123,16 +123,16 @@ export default async function Collection({
         <div className="products grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4 gap-3 pt-10">
           {products.map((product: any) => (
             <Link key={product._id} href={`/produits/${product._id}`}>
-              <div className="border border-gray-300 rounded-md flex flex-col cursor-pointer min-h-[600px] h-full">
-                <div className="image pb-3 h-3/4 bg-secondary  group overflow-hidden">
+              <div className="border border-gray-300 rounded-md flex flex-col cursor-pointer min-h-[700px] h-full">
+                <div className="image pb-3 h-2/3 h-full bg-secondary  group overflow-hidden">
                 <img
                       src={urlForImage(product.image)}
                     alt={product.title}
                       className="w-full h-full object-contain transform transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <div className="h-1/4 flex items-center flex-col px-3 py-2">
-                  <h2 className="text-primary font-bold text-center">
+                <div className="h-1/3 flex items-center flex-col px-3 py-2">
+                  <h2 className="text-primary font-bold text-center h-full pb-4" >
                     {product.title}
                   </h2>
                   <div className="flex justify-center">

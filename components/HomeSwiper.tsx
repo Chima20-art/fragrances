@@ -35,7 +35,7 @@ export default function HomeSwiper({ slider }: { slider: any[] }) {
                               <p className="font-semibold mb-2 uppercase lg:text-xl text-xs text-primary">
                                   {slide.subtitle}
                               </p>
-                              <h1 className=" capitalize lg:text-4xl text-3xl font-bold mb-3">
+                              <h1 className=" capitalize lg:text-4xl text-xl font-bold mb-3">
                                   {slide.title}
                               </h1>
                               <p className="text-gray-600 text-xs font-semibold capitalize">
