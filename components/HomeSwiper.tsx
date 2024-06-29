@@ -14,11 +14,9 @@ export default function HomeSwiper({ slider }: { slider: any[] }) {
   return (
     <div className="min-h-full h-[600px] relative w-full overflow-hidden my-4">
       <Swiper
-        modules={[Pagination, Autoplay]}
+          modules={[Pagination, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
         pagination={{
           clickable: true,
           el: ".swiper-pagination",
@@ -31,38 +29,38 @@ export default function HomeSwiper({ slider }: { slider: any[] }) {
       >
         {slider?.map((slide: any) => {
           return (
-            <SwiperSlide className="h-full w-full bg-secondary justify-center items-center">
-              <div className="flex min-h-full">
-                <div className="w-2/5 flex flex-col justify-center p-6">
-                  <p className="font-semibold mb-2 uppercase lg:text-xl text-xs text-primary">
-                    {slide.subtitle}
-                  </p>
-                  <h1 className=" capitalize lg:text-4xl text-3xl font-bold mb-3">
-                    {slide.title}
-                  </h1>
-                  <p className="text-gray-600 text-xs font-semibold capitalize">
-                    {" "}
-                    prix:
-                    <span className="ml-2 font-bold text-primary lg:text-xl text-sm">
+                  <SwiperSlide key={slide._key} className="h-full w-full bg-secondary justify-center items-center">
+                      <div className="flex min-h-full">
+                          <div className="w-2/5 flex flex-col justify-center p-6">
+                              <p className="font-semibold mb-2 uppercase lg:text-xl text-xs text-primary">
+                                  {slide.subtitle}
+                              </p>
+                              <h1 className=" capitalize lg:text-4xl text-3xl font-bold mb-3">
+                                  {slide.title}
+                              </h1>
+                              <p className="text-gray-600 text-xs font-semibold capitalize">
+                                  {""}
+                                  prix:
+                                  <span className="ml-2 font-bold text-primary lg:text-xl text-sm">
                       {slide.price}Dh
                     </span>
-                  </p>
-                  <Link
-                    href={slide.link}
-                    className="underline font-bold text-sm mt-6"
-                  >
-                    Shop Now
-                  </Link>
-                </div>
-                <div className="w-3/5 min-h-full flex justify-center items-center p-4">
-                  <img
-                    src={urlForImage(slide.image)}
-                    alt="Descriptive Alt Text"
-                    className="w-full max-h-[600px] object-contain"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
+                              </p>
+                              <Link
+                                  href={slide.link}
+                                  className="underline font-bold text-sm mt-6"
+                              >
+                                  Shop Now
+                              </Link>
+                          </div>
+                          <div className="w-3/5 min-h-full flex justify-center items-center p-4">
+                              <img
+                                  src={urlForImage(slide.image)}
+                                  alt="Descriptive Alt Text"
+                                  className="w-full max-h-[600px] object-contain"
+                              />
+                          </div>
+                      </div>
+                  </SwiperSlide>
           );
         })}
       </Swiper>

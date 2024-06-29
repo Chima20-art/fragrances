@@ -72,6 +72,7 @@ export default async function Collections() {
             {collections.map((collection: any) => {
               return (
                 <Link
+                    key={collection._id}
                   href={`/collections/${collection._id}`}
                   className="flex lg:min-h-[280px]  h-full flex-1 bg-secondary cursor-pointer"
                 >

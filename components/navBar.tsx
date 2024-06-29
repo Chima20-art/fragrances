@@ -3,8 +3,9 @@ import { GrHome } from "react-icons/gr";
 
 import Link from "next/link";
 import { FiChevronDown } from "react-icons/fi";
-import { useState } from "react";
+import {useState, useEffect} from "react";
 import {usePathname} from "next/navigation";
+import {Button} from "@nextui-org/react";
 
 export function NavBar({ collections, selectedTab }: { collections: any[], selectedTab:string }) {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -14,7 +15,8 @@ export function NavBar({ collections, selectedTab }: { collections: any[], selec
 
   console.log('selectedTab,pathname',selectedTab,pathname)
 
-
+  useEffect(() => {
+  }, [])
   const handleMouseEnter = () => {
     setDropdownVisible(true);
   };
@@ -33,7 +35,7 @@ export function NavBar({ collections, selectedTab }: { collections: any[], selec
           <GrHome size={15} />
           <div>Accueil</div>
         </Link>
-        <Link
+        <Button
             //onClick={() => setActiveTab('collections')}
             href={"/collections"}
           onMouseEnter={handleMouseEnter}
@@ -60,7 +62,7 @@ export function NavBar({ collections, selectedTab }: { collections: any[], selec
               })}
             </div>
           )}
-        </Link>
+        </Button>
 
         <Link     className={`${'/contact' == pathname ? "bg-primary text-white" : "bg-transparent text-black"} px-4 py-4 cursor-pointer`}
 
