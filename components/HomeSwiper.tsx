@@ -12,7 +12,7 @@ register();
 
 export default function HomeSwiper({ slider }: { slider: any[] }) {
   return (
-    <div className="min-h-full h-[600px] relative w-full overflow-hidden my-4">
+    <div className="min-h-full md:min-h-[600px] max-h-[400px] bg-secondary flex items-center relative w-full overflow-hidden my-4">
       <Swiper
           modules={[Pagination, Autoplay]}
         spaceBetween={50}
@@ -29,9 +29,9 @@ export default function HomeSwiper({ slider }: { slider: any[] }) {
       >
         {slider?.map((slide: any) => {
           return (
-                  <SwiperSlide key={slide._key} className="h-full w-full bg-secondary justify-center items-center">
+                  <SwiperSlide key={slide._key} className="h-full w-full bg-secondary justify-center items-center my-auto">
                       <div className="flex min-h-full">
-                          <div className="w-2/5 flex flex-col justify-center p-6">
+                          <div className="lg:w-2/5 w-3/5 flex flex-col justify-center lg:pl-6 p-6">
                               <p className="font-semibold mb-2 uppercase lg:text-xl text-xs text-primary">
                                   {slide.subtitle}
                               </p>
@@ -52,7 +52,7 @@ export default function HomeSwiper({ slider }: { slider: any[] }) {
                                   Shop Now
                               </Link>
                           </div>
-                          <div className="w-3/5 min-h-full flex justify-center items-center p-4">
+                          <div className="lg:w-3/5 w-2/5 min-h-full flex justify-center items-center lg:p-4 p-2">
                               <img
                                   src={urlForImage(slide.image)}
                                   alt="Descriptive Alt Text"
