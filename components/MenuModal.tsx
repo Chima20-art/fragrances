@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Link from "next/link";
 import React from "react";
 
-export default  function MenuModal ({showModal,setShowModal}){
+export default  function MenuModal ({showModal,setShowModal}:{showModal:any,setShowModal:any}){
     const modalVariants = {
         open: { x: 0, opacity: 1 },
         closed: { x: '100vw', opacity: 0 },
