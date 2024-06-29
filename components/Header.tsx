@@ -26,7 +26,7 @@ import CartModal from "./CartModal";
 import {urlForImage} from "@/app/sanity/client";
 
 
-export default function Header({ websiteSettings }) {
+export default function Header({ websiteSettings }:{websiteSettings: any }) {
   return (
       <Suspense fallback={<div>Loading...</div>}>
         <HeaderWrapper websiteSettings={websiteSettings} />
