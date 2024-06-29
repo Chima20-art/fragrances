@@ -15,7 +15,7 @@ export default function HomeCatalogue({
           ?.slice(0, 2)
           .map((collection: any, index: any) => {
             return (
-              <div className="flex min-h-full flex-1 bg-secondary">
+              <Link href={`/collections/${collection?._id}`} className="flex min-h-full flex-1 bg-secondary">
                 <div className="w-1/2 flex flex-col justify-center p-6">
                   <p className="font-semibold mb-2 uppercase text-[8px] lg:text-xs text-primary">
                     {collection.subtitle}
@@ -38,7 +38,7 @@ export default function HomeCatalogue({
                     className="w-full max-h-[250px] object-contain"
                   />
                 </div>
-              </div>
+              </Link>
             );
           })}
       </div>

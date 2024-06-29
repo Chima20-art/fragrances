@@ -19,7 +19,7 @@ export default async function Collections() {
     image,
     _createdAt,
     instagram,
-    facebook,
+    tiktok,
     contactEmail,
     contactPhone
     }
@@ -60,7 +60,7 @@ export default async function Collections() {
     <div className="flex flex-col justify-between min-h-[100vh] ">
       <div className="fixed top-0 z-[1000] w-full">
         <Header websiteSettings={websiteSettings} />
-        <NavBar collections={collections} />
+        <NavBar collections={collections}  selectedTab={'/collections'}/>
       </div>
       <div className="body p-4">
         <div className="text-gray-700 uppercase font-bold text-xl py-2 mb-8 text-center relative lg:pt-60 pt-40">
@@ -97,7 +97,7 @@ export default async function Collections() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer websiteSettings={websiteSettings} />
     </div>
   );
 }

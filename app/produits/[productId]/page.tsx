@@ -3,14 +3,6 @@ import Header from "@/components/Header";
 
 import Product from "@/components/productPage";
 import { NavBar } from "@/components/navBar";
-import {
-  Button,
-  Accordion,
-  AccordionItem,
-  ScrollShadow,
-} from "@nextui-org/react";
-import { useState } from "react";
-import { RiShoppingCartFill } from "react-icons/ri";
 import Footer from "@/components/footer";
 
 export default async function ProductPage({
@@ -37,7 +29,7 @@ export default async function ProductPage({
     image,
     _createdAt,
     instagram,
-    facebook,
+    tiktok,
     contactEmail,
     contactPhone
     }
@@ -97,13 +89,13 @@ export default async function ProductPage({
   console.log("product", product);
 
   return (
-    <div className="bg-white overflow-hidden">
-      <div className="fixed top-0 z-40  w-full">
+    <div className="bg-white min-h-[100vh] flex flex-col justify-between">
+      <div className="fixed top-0 z-40 w-full">
         <Header websiteSettings={websiteSettings} />
-        <NavBar collections={collections} />
+        <NavBar collections={collections}  selectedTab={'/'}/>
       </div>
       <Product product={product} />
-      <Footer />
+      <Footer websiteSettings={websiteSettings}/>
     </div>
   );
 }

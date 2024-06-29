@@ -19,7 +19,7 @@ export default async function Order() {
             image,
             _createdAt,
             instagram,
-            facebook,
+            tiktok,
             contactEmail,
             contactPhone
             }
@@ -55,14 +55,14 @@ export default async function Order() {
   ]);
 
   return (
-    <div className="bg-white overflow-hidden ">
+    <div className="bg-white flex flex-col min-h-[100vh] justify-between">
       <div className="fixed top-0 z-[1000] w-full">
         <Header websiteSettings={websiteSettings} />
-        <NavBar collections={collections} />
+        <NavBar collections={collections}  selectedTab={'/'}/>
       </div>
 
       <OrderProductsList />
-      <Footer />
+      <Footer websiteSettings={websiteSettings} />
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default async function Home() {
     image,
     _createdAt,
     instagram,
-    facebook,
+    tiktok,
     contactEmail,
     contactPhone
     }
@@ -85,13 +85,13 @@ export default async function Home() {
       <div className="bg-white overflow-hidden">
         <div className="fixed top-0 z-40 w-full">
           <Header websiteSettings={websiteSettings} />
-          <NavBar collections={collections} />
+          <NavBar collections={collections}  selectedTab={'/'} />
         </div>
         <div className="lg:w-[54vw] mx-auto lg:pt-48 pt-24">
           <HomeCatalogue websiteSettings={websiteSettings} />
           <BestSellers products={products} />
         </div>
-        <Footer />
+        <Footer  websiteSettings={websiteSettings}/>
       </div>
     </NextUIProvider>
   );

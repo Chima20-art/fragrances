@@ -4,9 +4,16 @@ import { GrHome } from "react-icons/gr";
 import Link from "next/link";
 import { FiChevronDown } from "react-icons/fi";
 import { useState } from "react";
+import {usePathname} from "next/navigation";
 
-export function NavBar({ collections }: { collections: any[] }) {
+export function NavBar({ collections, selectedTab }: { collections: any[], selectedTab:string }) {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const pathname = usePathname();
+
+
+
+  console.log('selectedTab,pathname',selectedTab,pathname)
+
 
   const handleMouseEnter = () => {
     setDropdownVisible(true);
@@ -19,17 +26,19 @@ export function NavBar({ collections }: { collections: any[] }) {
     <div className="bg-secondary w-full lg:flex hidden">
       <div className="md:w-[1200px] m-auto flex gap-x-4 flex-row text-[10px] uppercase font-bold">
         <Link
+            //onClick={() => setActiveTab('home')}
           href="/"
-          className="px-4 py-4 cursor-pointer text-white flex bg-primary justify-center items-center gap-x-2"
+          className={`${'/' == pathname ? "bg-primary text-white" : "bg-transparent text-black"} px-4 py-4 cursor-pointer flex justify-center items-center gap-x-2`}
         >
           <GrHome size={15} />
           <div>Accueil</div>
         </Link>
         <Link
-          href={"/collections"}
+            //onClick={() => setActiveTab('collections')}
+            href={"/collections"}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="collections-tab px-4 py-4 cursor-pointer flex justify-center items-center gap-x-2 relative"
+            className={`${'/collections' == pathname ? "bg-primary text-white" : "bg-transparent text-black"} collections-tab px-4  text-black py-4 cursor-pointer flex justify-center items-center gap-x-2 relative`}
         >
           <div>Collections</div>
           <FiChevronDown />
@@ -40,9 +49,10 @@ export function NavBar({ collections }: { collections: any[] }) {
                   <Link
                     key={collection._id}
                     href={`/collections/${collection._id}`}
+
                     className="hover:bg-secondary hover:text-primary p-3 px-4 w-full"
                   >
-                    <div className="whitespace-nowrap overflow-hidden text-ellipsis font-semibold w-full flex-grow">
+                    <div className="whitespace-nowrap overflow-hidden text-ellipsis text-black font-semibold w-full flex-grow">
                       {collection.title}
                     </div>
                   </Link>
@@ -52,7 +62,9 @@ export function NavBar({ collections }: { collections: any[] }) {
           )}
         </Link>
 
-        <Link href={"/contact"} className="px-4 py-4 cursor-pointer">
+        <Link     className={`${'/contact' == pathname ? "bg-primary text-white" : "bg-transparent text-black"} px-4 py-4 cursor-pointer`}
+
+                                      href={"/contact"}>
           Contactez-nous
         </Link>
       </div>

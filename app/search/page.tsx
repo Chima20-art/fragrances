@@ -34,7 +34,7 @@ export default async function Search({
     image,
     _createdAt,
     instagram,
-    facebook,
+    tiktok,
     contactEmail,
     contactPhone
     }

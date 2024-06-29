@@ -23,6 +23,7 @@ import {
 } from "@nextui-org/react";
 import { CardItemsContext } from "./CardItemsContext";
 import CartModal from "./CartModal";
+import {urlForImage} from "@/app/sanity/client";
 
 export default function Header({ websiteSettings }: { websiteSettings: any }) {
   const searchParams = useSearchParams();
@@ -58,7 +59,7 @@ export default function Header({ websiteSettings }: { websiteSettings: any }) {
 
       <div className="lg:w-[1200px] w-full m-auto bg-white lg:py-8 py-4 lg:px-0 px-2 flex justify-between items-end">
         <Link href="/" className="flex items-center space-x-4 cursor:pointer">
-          <img src={"/logo.svg"} alt="lofo" className={" min-h-16"}></img>
+          <img src={urlForImage(websiteSettings?.image)} alt="logo" className={"h-16"}></img>
         </Link>
         <div className="hidden lg:flex items-center rounded-xl overflow-hidden">
           <Input

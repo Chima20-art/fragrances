@@ -80,7 +80,7 @@ export async function addOrder({
 
     return {
       status: true,
-      message: "Order added successfully",
+      message: "Commande envoyée avec succes ",
     };
   } catch (error: any) {
     console.error("addOrder ", error.message);
