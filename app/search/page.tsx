@@ -34,7 +34,7 @@ export default async function Search({
     image,
     _createdAt,
     instagram,
-    facebook,
+    tiktok,
     contactEmail,
     contactPhone
     }
@@ -112,11 +112,11 @@ export default async function Search({
                 {products.map((product: any) => (
                   <Link key={product._id} href={`/produits/${product._id}`}>
                     <div className="border border-gray-300 rounded-md flex flex-col min-h-[350px] cursor-pointer h-full">
-                      <div className="image pb-3 h-3/4 bg-secondary">
+                      <div className="group image pb-3 h-3/4 bg-secondary">
                         <img
                           src={urlForImage(product.image)}
                           alt={product.title}
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-contain transform transition-transform duration-300 group-hover:scale-110"
                         />
                       </div>
                       <div className="h-1/4 flex items-center flex-col px-3 py-2">

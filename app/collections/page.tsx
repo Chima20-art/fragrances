@@ -19,7 +19,7 @@ export default async function Collections() {
     image,
     _createdAt,
     instagram,
-    facebook,
+    tiktok,
     contactEmail,
     contactPhone
     }
@@ -57,38 +57,39 @@ export default async function Collections() {
   console.log("collections ", collections);
 
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="flex flex-col justify-between min-h-[100vh] ">
       <div className="fixed top-0 z-[1000] w-full">
         <Header websiteSettings={websiteSettings} />
-        <NavBar collections={collections} />
+        <NavBar collections={collections}  selectedTab={'/collections'}/>
       </div>
-      <div className="body">
+      <div className="body p-4">
         <div className="text-gray-700 uppercase font-bold text-xl py-2 mb-8 text-center relative lg:pt-60 pt-40">
           Nos Collections
           <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-primary h-[3px] w-20"></span>
         </div>
         <div className="flex  max-w-[1200px] m-auto">
-          <div className="collections grid grid-cols-2 lg:grid-cols-3  lg:gap-4 gap-3">
+          <div className="collections grid grid-cols-2 lg:grid-cols-3 lg:gap-4 gap-3">
             {collections.map((collection: any) => {
               return (
                 <Link
+                    key={collection._id}
                   href={`/collections/${collection._id}`}
-                  className="flex h-full flex-1 bg-secondary cursor-pointer"
+                  className="flex lg:min-h-[280px]  h-full flex-1 bg-secondary cursor-pointer"
                 >
                   <div className="w-1/2 flex flex-col justify-center p-6">
                     <p className="font-semibold mb-2 uppercase text-[8px] lg:text-xs text-primary">
                       {collection.subtitle}
                     </p>
-                    <h1 className="text-base font-semibold capitalize lg:text-xl text-sm mb-3">
+                    <h1 className="text-base font-semibold capitalize lg:text-2xl text-xl mb-3">
                       {" "}
                       {collection.title}
                     </h1>
                   </div>
-                  <div className="w-1/2 flex justify-center items-center p-4">
+                  <div className="group w-1/2 flex justify-center items-center p-4">
                     <img
                       src={urlForImage(collection.image)}
                       alt="Descriptive Alt Text"
-                      className="w-full h-full object-cover"
+                      className="w-full md:h-[260px] h-[200px] object-cover transform transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
                 </Link>
@@ -97,7 +98,7 @@ export default async function Collections() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer websiteSettings={websiteSettings} />
     </div>
   );
 }

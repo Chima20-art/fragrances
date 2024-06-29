@@ -7,7 +7,6 @@ import { GoChevronRight } from "react-icons/go";
 
 export default async function Collection({
   params,
-  searchParams,
 }: {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -26,7 +25,7 @@ export default async function Collection({
     image,
     _createdAt,
     instagram,
-    facebook,
+    tiktok,
     contactEmail,
     contactPhone
     }
@@ -38,10 +37,10 @@ export default async function Collection({
     },
   });
 
-  let collectionId = decodeURIComponent(params.id ?? ""); // This is the collection title but it has %20 instead of spaces can you parse it
+  let collectionId = params.id ;
 
   let selectedCollectionPromise = sanityClient.fetch({
-    query: `*[_type == 'collections' && id == "${collectionId}"][0]{
+    query: `*[_type == 'collections' && _id == "${collectionId}"][0]{
     image,
     title,
     _updatedAt,
@@ -106,12 +105,12 @@ export default async function Collection({
     productsPromise,
     collectionsPromise,
   ]);
-
+  console.log('selectedCollection', selectedCollection)
   return (
     <div className="bg-white overflow-hidden flex flex-col min-h-screen">
       <div className="fixed top-0 z-[1000] w-full">
         <Header websiteSettings={websiteSettings} />
-        <NavBar collections={collections} />
+        <NavBar collections={collections}  selectedTab={'/collections'}/>
       </div>
       <div className="flex-1 lg:mt-60 mt-40 mx-auto max-w-[1200px] max-lg:p-4">
         <div className="flex items-center">
@@ -119,17 +118,17 @@ export default async function Collection({
           <GoChevronRight />
           <Link href={"/collections"}>Collections</Link>
           <GoChevronRight />
-          <span className="collection-title">{selectedCollection?.title}</span>
+          <span className="collection-title ">{selectedCollection.title}</span>
         </div>
         <div className="products grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4 gap-3 pt-10">
           {products.map((product: any) => (
             <Link key={product._id} href={`/produits/${product._id}`}>
-              <div className="border border-gray-300 rounded-md flex flex-col min-h-[350px] cursor-pointer h-full">
-                <div className="image pb-3 h-3/4 bg-secondary">
-                  <img
-                    src={urlForImage(product.image)}
+              <div className="border border-gray-300 rounded-md flex flex-col cursor-pointer min-h-[600px] h-full">
+                <div className="image pb-3 h-3/4 bg-secondary  group overflow-hidden">
+                <img
+                      src={urlForImage(product.image)}
                     alt={product.title}
-                    className="w-full h-full object-contain"
+                      className="w-full h-full object-contain transform transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
                 <div className="h-1/4 flex items-center flex-col px-3 py-2">
@@ -152,7 +151,7 @@ export default async function Collection({
           ))}
         </div>
       </div>
-      <Footer />
+      <Footer websiteSettings={websiteSettings}/>
     </div>
   );
 }

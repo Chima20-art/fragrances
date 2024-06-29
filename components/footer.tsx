@@ -3,9 +3,8 @@
 import React from "react";
 import {Link, Spacer} from "@nextui-org/react";
 
-
-import {Icon} from "@iconify/react";
 import {AcmeIcon} from "@/components/social";
+import {urlForImage} from "@/app/sanity/client";
 
 
 
@@ -29,44 +28,57 @@ const navLinks = [  {
 
 ];
 
-const socialItems = [  {
-    name: "Facebook",
-    href: "#",
-    icon: (props) => <Icon {...props} icon="fontisto:facebook" />,
+
+
+export default function Footer({websiteSettings}:{websiteSettings:any}) {
+
+    const phoneNumber = '212675255685';
+    const defaultMessage = "Bonjour, je suis intéressé par vos parfums.";
+
+
+    const handleClick = () => {
+        const encodedMessage = encodeURIComponent(defaultMessage);
+        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    };
+    const socialItems = [  {
+        name: "Tiktok",
+        href: websiteSettings?.tiktok,
+        icon: (props) => <img src="/tiktok.svg" alt="tiktok" className="w-4 h-6"/>,
+    },
+        {
+            name: "Instagram",
+            href: websiteSettings?.instagram,
+        icon:
+    (props) => <img src="/insta.svg" alt='insta'/>,
 },
     {
-        name: "Instagram",
-        href: "#",
-        icon: (props) => <Icon {...props} icon="fontisto:instagram" />,
-    },
-    {
         name: "Whatsapp",
-        href: "#",
-        icon: (props) => <Icon {...props} icon="fontisto:whatsapp" />,
+            href: "#",
+        icon: (props) => <div onClick={handleClick}>
+            <img src="/whatsapp.svg" alt='insta'/>
+        </div>,
     },
 
-];
-
-export default function Footer() {
+    ];
     return (
         <div className="flex w-full flex-col bg-secondary mt-20  bottom-0 ">
             <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-6 py-12 lg:px-8">
                 <div className="flex items-center justify-center">
-                    <AcmeIcon size={44}/>
-                    <span className="text-medium font-medium">Superbfragrance</span>
+                    {websiteSettings?.image &&
+                        <img src={urlForImage(websiteSettings.image)} alt={websiteSettings.title} className='h-16'/>}
                 </div>
                 <Spacer y={4}/>
                 <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
                     {navLinks.map((item) => (
-                        <Link
-                            key={item.name}
-                            isExternal
-                            className="text-default-500"
-                            href={item.href}
-                            size="sm"
-                        >
-                            {item.name}
-                        </Link>
+                         <Link
+                                key={item.name}
+                                isExternal
+                                className="text-default-500"
+                                href={item.href}
+                                size="sm"
+                            >
+                                {item.name}
+                            </Link>
                     ))}
                 </div>
                 <Spacer y={6}/>
