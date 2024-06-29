@@ -136,7 +136,7 @@ export default async function Contact() {
                 <ContactForm/>
             </div>
 
-            <Footer/>
+            <Footer websiteSettings={websiteSettings}/>
         </div>
     );
 }
