@@ -98,7 +98,7 @@ export default async function Search({
       <div className="bg-white overflow-hidden">
         <div className="fixed top-0 z-40 w-full">
           <Header websiteSettings={websiteSettings} />
-          <NavBar collections={collections} />
+          <NavBar collections={collections} selectedTab={'/'} />
         </div>
         <div className="lg:w-[54vw] mx-auto lg:pt-48 pt-24">
           <div className="pb-40 my-8 z-0 mx-auto max-lg:px-4">

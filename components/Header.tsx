@@ -10,7 +10,7 @@ import {
 import { SearchIcon } from "@nextui-org/shared-icons";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { IoMdMenu } from "react-icons/io";
-import { useContext, useState } from "react";
+import {useContext, useState, Suspense} from "react";
 import MenuModal from "@/components/MenuModal";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -25,7 +25,16 @@ import { CardItemsContext } from "./CardItemsContext";
 import CartModal from "./CartModal";
 import {urlForImage} from "@/app/sanity/client";
 
-export default function Header({ websiteSettings }: { websiteSettings: any }) {
+
+export default function Header({ websiteSettings }:{websiteSettings: any }) {
+  return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <HeaderWrapper websiteSettings={websiteSettings} />
+      </Suspense>
+  );
+}
+
+function HeaderWrapper({ websiteSettings }: { websiteSettings: any }) {
   const searchParams = useSearchParams();
 
   const [showModal, setShowModal] = useState(false);

@@ -54,7 +54,7 @@ export default function ContactForm() {
   };
 
   if (success)
-    return <p className="text-primary  text-xl font-bold">{success}</p>;
+    return <p className="text-primary  md:text-xl text-md font-bold">{success}</p>;
 
   return (
     <form onSubmit={handleSubmit} className=" min-w-[200px] space-y-4">

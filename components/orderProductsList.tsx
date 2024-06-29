@@ -67,7 +67,7 @@ export default function OrderProductsList() {
     //TODO: add order create page
     return (
       <div className="lg:mt-60 mt-40 m-auto lg:max-w-4xl sm:max-w-2xl  w-[95%] uppercase  my-10 text-grey-700 flex flex-col items-center mx-auto py-8 h-full  bg-[#f5f5f5] w-full border border-grey-300">
-        <p className="text-primary  text-xl font-bold">{success}</p>
+        <p className="text-primary  md:text-xl text-md font-bold">{success}</p>
       </div>
     );
   }

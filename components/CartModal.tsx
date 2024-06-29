@@ -81,7 +81,7 @@ export default function CartModal({ showCartModal, setShowCartModal }: any) {
             )}
           </span>
         </div>
-        <Link href={"/order"}>
+        <Link href={"/order"} className="pb-8">
           <Button
             type="button"
             className="text-white bg-primary tracking-wide rounded-full text-sm px-4 py-3 w-full !mt-6"

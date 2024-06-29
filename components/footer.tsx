@@ -43,18 +43,18 @@ export default function Footer({websiteSettings}:{websiteSettings:any}) {
     const socialItems = [  {
         name: "Tiktok",
         href: websiteSettings?.tiktok,
-        icon: (props) => <img src="/tiktok.svg" alt="tiktok" className="w-4 h-6"/>,
+        icon: (props:any) => <img src="/tiktok.svg" alt="tiktok" className="w-4 h-6"/>,
     },
         {
             name: "Instagram",
             href: websiteSettings?.instagram,
         icon:
-    (props) => <img src="/insta.svg" alt='insta'/>,
+    (props:any) => <img src="/insta.svg" alt='insta'/>,
 },
     {
         name: "Whatsapp",
             href: "#",
-        icon: (props) => <div onClick={handleClick}>
+        icon: (props:any) => <div onClick={handleClick}>
             <img src="/whatsapp.svg" alt='insta'/>
         </div>,
     },
