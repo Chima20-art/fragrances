@@ -105,7 +105,6 @@ export default async function Collection({
     productsPromise,
     collectionsPromise,
   ]);
-  console.log('selectedCollection', selectedCollection)
   return (
     <div className="bg-white overflow-hidden flex flex-col min-h-screen">
       <div className="fixed top-0 z-[1000] w-full">
