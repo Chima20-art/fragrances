@@ -16,7 +16,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         console.log("cartItems", cartItems);
 
         let productsIds = cartItems.map((item: any) => item.product._id);
-        console.log("productsIds ", productsIds);
         let products: any[] = await sanityClient.fetch({
           query: `*[_type == 'products' && _id in $productsIds]`,
           params: {

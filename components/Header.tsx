@@ -51,8 +51,6 @@ function HeaderWrapper({ websiteSettings }: { websiteSettings: any }) {
   };
   const router = useRouter();
 
-  console.log("websiteSettings ", websiteSettings);
-
   const onSearch = () => {
     if (search.trim() === "") return;
     router.push(`/search?search=${search.trim()}`);

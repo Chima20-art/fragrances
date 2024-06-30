@@ -54,8 +54,6 @@ export default async function Collections() {
     collectionsPromise,
   ]);
 
-  console.log("collections ", collections);
-
   return (
     <div className="flex flex-col justify-between min-h-[100vh] ">
       <div className="fixed top-0 z-[1000] w-full">

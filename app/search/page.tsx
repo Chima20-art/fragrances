@@ -91,7 +91,6 @@ export default async function Search({
       collectionsPromise,
     ]);
 
-  console.log("products", products);
 
   return (
     <NextUIProvider>

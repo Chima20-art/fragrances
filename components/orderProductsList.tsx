@@ -59,10 +59,10 @@ export default function OrderProductsList() {
   };
 
   const onRemoveItem = (productId: string) => {
-    console.log("productId", productId);
     handleRemoveFromCart(productId);
   };
 
+  console.log('cartItems',cartItems)
   if (success) {
     //TODO: add order create page
     return (

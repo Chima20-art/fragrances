@@ -78,7 +78,6 @@ export default async function Home() {
       collectionsPromise,
     ]);
 
-  console.log("products", products);
 
   return (
     <NextUIProvider>

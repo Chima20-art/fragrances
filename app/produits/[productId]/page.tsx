@@ -13,7 +13,6 @@ export default async function ProductPage({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   let productId = decodeURIComponent(params.productId ?? "");
-  console.log("productId", productId);
 
   let websiteSettingsPromise = sanityClient.fetch({
     query: `*[_type == 'siteSettings'][0]
@@ -85,8 +84,6 @@ export default async function ProductPage({
       productPromise,
       collectionsPromise,
     ]);
-
-  console.log("product", product);
 
   return (
     <div className="bg-white min-h-[100vh] flex flex-col justify-between">
